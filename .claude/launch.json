@@ -4,8 +4,12 @@
     {
       "name": "static",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "4173"],
-      "port": 4173
+      "runtimeArgs": [
+        "-c",
+        "import os,http.server,socketserver; socketserver.TCPServer.allow_reuse_address=True; socketserver.TCPServer(('',int(os.environ.get('PORT','4173'))),http.server.SimpleHTTPRequestHandler).serve_forever()"
+      ],
+      "port": 4173,
+      "autoPort": true
     }
   ]
 }
