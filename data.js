@@ -1,24 +1,26 @@
-// Preguntas guía para evaluar Booking.com
-// Sin definiciones: solo preguntas. La respuesta es el multiple choice;
-// la referencia de captura de pantalla es opcional.
+// Preguntas guía para evaluar Booking.com.
+// Sin definiciones: solo la pregunta guía.
+// Por cada ítem se completa: veredicto/severidad (multiple choice),
+// captura de pantalla (imagen + nota, opcional) y explicación (1-2 frases).
 
 window.DATASETS = {
   leyes: {
     id: "leyes",
     title: "Leyes UX",
-    tagline: "14 leyes · evaluación de Booking.com",
+    tagline: "14 leyes · checklist sobre Booking.com",
     emoji: "📐",
+    verdictLabel: "Cumple / Rompe",
+    explainPrompt:
+      "Explicación (1–2 frases): qué pasa y por qué, respondiendo la pregunta guía.",
     scale: [
       { value: "cumple", label: "Cumple", weight: 1 },
-      { value: "parcial", label: "Cumple parcialmente", weight: 0.5 },
-      { value: "rompe", label: "No cumple / Se rompe", weight: 0 },
-      { value: "na", label: "No aplica / No observado", weight: null },
+      { value: "rompe", label: "Rompe", weight: 0 },
     ],
     questions: [
       {
         id: "jakob",
         name: "Ley de Jakob",
-        q: "¿Booking se comporta de forma predecible respecto a otros sitios de reservas y de e-commerce que la persona ya conoce (ubicación del buscador, del login, de “Mis reservas” y de los filtros)?",
+        q: "¿Booking se comporta de forma predecible respecto de otros sitios de reservas y de e-commerce que la persona ya conoce (ubicación del buscador, del login, de “Mis reservas” y de los filtros)?",
       },
       {
         id: "fitts",
@@ -91,13 +93,16 @@ window.DATASETS = {
   heuristicas: {
     id: "heuristicas",
     title: "Heurísticas de Nielsen",
-    tagline: "10 heurísticas · escala 0 a 4",
+    tagline: "10 heurísticas completas · escala 0 a 4",
     emoji: "🔍",
+    verdictLabel: "Severidad 0–4",
+    explainPrompt:
+      "Explicación: qué pasa, por qué rompe o cumple la heurística y qué impacto tiene en la persona usuaria.",
     scale: [
-      { value: "0", label: "0 · Sin problema — se cumple", weight: 0 },
+      { value: "0", label: "0 · No es un problema", weight: 0 },
       { value: "1", label: "1 · Cosmético", weight: 1 },
-      { value: "2", label: "2 · Prioridad media", weight: 2 },
-      { value: "3", label: "3 · Prioridad alta", weight: 3 },
+      { value: "2", label: "2 · Menor", weight: 2 },
+      { value: "3", label: "3 · Mayor", weight: 3 },
       { value: "4", label: "4 · Catástrofe de usabilidad", weight: 4 },
     ],
     questions: [
